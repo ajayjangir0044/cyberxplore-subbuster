@@ -56,9 +56,10 @@ const Home=({history})=>{
                     </Button>
                 </Col>
                 {showTags && <Col span={12} className="text-center">
-                    {subdomain && subdomain.map((s,i)=>(
+                    {subdomain.length==0?<p className="mt-3">No searches yet !</p>:null}
+                    {subdomain && subdomain.length>0 && subdomain.map((s,i)=>(
                     <Link to={`/find?domain=${s}`}>
-                        <Tag color={color[Math.floor((Math.random() * 9))]} className="mt-3">{s}</Tag>
+                        <Tag key={i} color={color[Math.floor((Math.random() * 9))]} className="mt-3">{s}</Tag>
                     </Link>
                     ))}
                 </Col> }
